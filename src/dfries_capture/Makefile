@@ -5,7 +5,7 @@ CXXFLAGS=-g -Os -Wall -mcall-prologues -mmcu=$(MCU) -std=c++11
 ELF2HEX=avr-objcopy
 OBJDUMP=avr-objdump
 AVRDUDE=avrdude
-TARGET=cpu_clock
+TARGET=capture
 SIZE=avr-size
 
 CXXFLAGS:=$(CXXFLAGS) -DF_CPU=8000000
@@ -48,4 +48,5 @@ sizeafter: $(TARGET).elf
 	$(OBJDUMP) -h -S -z $< > $@
 
 clean :
-	rm -f *.hex *.elf *.elf.old *.lss *.o
+	rm -f *.hex *.elf *.elf.old *.lss *.o *.d
+
